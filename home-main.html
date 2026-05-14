@@ -24,6 +24,19 @@
     </button>
   </header>
 
+  <!-- ── Menu Overlay ── -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-overlay__content">
+      <a href="home-main.html" class="menu-overlay__link">ÜBER UNS</a>
+      <a href="home-main.html" class="menu-overlay__link">KERNKOMPETENZEN</a>
+      <a href="home-main.html" class="menu-overlay__link">PRODUKTWELT</a>
+      <a href="home-main.html" class="menu-overlay__link">ANSPRUCH</a>
+      <a href="home-main.html" class="menu-overlay__link">LEITBILD</a>
+      <a href="4Mathol und der Wirkstoff t-ZnO.html" class="menu-overlay__link">WIRKSTOFF T-ZnO</a>
+      <a href="#" class="menu-overlay__link">IMPRESSUM</a>
+    </div>
+  </div>
+
   <!-- ── Hero ── -->
   <section class="hero">
     <img
@@ -281,12 +294,33 @@
           <a href="#" class="footer__link">LEITBILD</a>
         </div>
         <div class="footer__col footer__col--right">
-          <a href="#" class="footer__link">WIRKSTOFF T-ZnO</a>
+          <a href="4Mathol und der Wirkstoff t-ZnO.html" class="footer__link">WIRKSTOFF T-ZnO</a>
           <a href="#" class="footer__link">IMPRESSUM</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector('.navbar__hamburger');
+      const overlay = document.getElementById('menuOverlay');
+      const links = document.querySelectorAll('.menu-overlay__link');
+
+      if (hamburger && overlay) {
+        hamburger.addEventListener('click', () => {
+          overlay.classList.toggle('open');
+          hamburger.classList.toggle('open');
+        });
+
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            overlay.classList.remove('open');
+            hamburger.classList.remove('open');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
