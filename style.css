@@ -32,6 +32,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family);
   color: var(--color-black);
@@ -388,9 +392,19 @@ body::before {
 
 .image-gallery img {
   height: 250px;
-  width: auto;
+  width: 375px;
   object-fit: cover;
   flex-shrink: 0;
+}
+
+.image-gallery img.half-cut-left {
+  width: 187.5px;
+  object-position: right center;
+}
+
+.image-gallery img.half-cut-right {
+  width: 187.5px;
+  object-position: left center;
 }
 
 .section-privatelabel .container-2col {
@@ -437,9 +451,6 @@ body::before {
   color: var(--color-black);
 }
 
-.mission-info .col-left {
-  /* margin-top: 10px; removed to prevent double margin with .anspruch-arrow */
-}
 
 @media (max-width: 900px) {
   .section-privatelabel .container-2col {
@@ -704,9 +715,10 @@ body::before {
   font-family: var(--font-family);
   font-style: normal;
   font-weight: var(--fw-200);
-  font-size: var(--fs-70);
-  line-height: var(--lh-78);
+  font-size: 56px;
+  line-height: 64px;
   color: var(--color-teal);
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -1083,5 +1095,347 @@ body::before {
     flex-direction: column;
     gap: 48px;
     width: 100%;
+  }
+}
+
+/* ── Mobile Phones (≤ 480px) ────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Suppress forced line-breaks so text reflows naturally */
+  br {
+    display: none;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 14px 20px;
+  }
+  .navbar__logo {
+    font-size: 28px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 180px;
+  }
+
+  /* ── Universal container padding ── */
+  .section-ueber-uns .container-2col,
+  .section-anspruch .container-2col,
+  .section-kernkompetenzen .container-2col,
+  .section-produktwelt .container-2col,
+  .section-privatelabel .container-2col,
+  .section-qualitaet .container-2col,
+  .section-leitbild .container-2col {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  /* ── Section vertical padding ── */
+  .section-ueber-uns        { padding: 48px 0 24px; }
+  .section-anspruch         { padding: 40px 0;      }
+  .section-kernkompetenzen  { padding: 48px 0 56px; }
+  .section-produktwelt      { padding: 48px 0 56px; }
+  .section-privatelabel     { padding: 0 0 56px;    }
+  .section-qualitaet        { padding: 48px 0 56px; }
+  .section-leitbild         { padding: 48px 0 56px; }
+
+  /* ── Remove top-margin on section labels (single-col layout) ── */
+  .section-label {
+    margin-top: 0;
+  }
+
+  /* ── Large headlines: 70 px → 34 px ── */
+  .section-headline,
+  .kern-headline,
+  .produkt-headline,
+  .qualitaet-headline,
+  .leitbild-headline {
+    font-size: 34px;
+    line-height: 42px;
+    margin-bottom: 24px;
+  }
+
+  /* ── Medium headlines: 38 px → 22 px ── */
+  .anspruch-text,
+  .mission-text,
+  .private-label-title,
+  .produkt-subhead,
+  .qualitaet-subhead,
+  .leitbild-quote {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  /* ── Body text: 22 px → 16 px ── */
+  .section-body,
+  .kern-body,
+  .produkt-desc,
+  .produkt-footer,
+  .private-label-desc,
+  .qualitaet-body,
+  .leitbild-body {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  /* ── List text ── */
+  .produkt-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .qualitaet-list-title,
+  .leitbild-list-title {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .qualitaet-list > li,
+  .qualitaet-sublist > li,
+  .leitbild-list > li {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 12px;
+  }
+
+  /* ── Produkt list ── */
+  .produkt-list {
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .produkt-title {
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* ── Qualität / Leitbild containers ── */
+  .qualitaet-list-container  { margin-bottom: 44px; }
+  .leitbild-body             { margin-bottom: 36px; }
+  .leitbild-quote            { padding-bottom: 28px; }
+  .private-label-desc        { padding-bottom: 28px; }
+
+  /* ── Arrow SVG: scale down slightly ── */
+  .anspruch-arrow {
+    width: 56px;
+    height: 18px;
+  }
+
+  /* ── Image gallery ── */
+  .image-gallery {
+    gap: 8px;
+    margin-bottom: 44px;
+  }
+  .image-gallery img {
+    height: 160px;
+    width: 240px;
+  }
+  .image-gallery img.half-cut-left,
+  .image-gallery img.half-cut-right {
+    width: 120px;
+  }
+
+  /* ── Menu overlay: full-width slide-in ── */
+  .menu-overlay {
+    width: 100%;
+    right: -100%;
+    padding: 44px 24px;
+    top: 72px;
+    height: calc(100vh - 72px);
+  }
+  .menu-overlay.open {
+    right: 0;
+  }
+  .menu-overlay__content {
+    gap: 22px;
+  }
+  .menu-overlay__link {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 56px 0;
+  }
+  .footer__container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  .footer__logo {
+    font-size: 40px;
+  }
+  .footer__links {
+    gap: 28px;
+  }
+  .footer__col {
+    gap: 20px;
+  }
+}
+
+/* ── Mobile: t-ZnO page sections (≤ 480px) ─────────────────── */
+@media (max-width: 480px) {
+
+  /* Container padding for all t-ZnO page sections */
+  .section-tzno-intro .container-2col,
+  .section-tzno-beschreibung .container-2col,
+  .section-wirkprinzip .container-2col,
+  .section-patente .container-2col,
+  .section-anwendungsbereiche .container-2col,
+  .section-forschung .container-2col,
+  .section-nachweise .container-2col,
+  .section-zusammenfassung .container-2col {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  /* Section vertical padding */
+  .section-tzno-intro          { padding: 44px 0 28px; }
+  .section-tzno-beschreibung   { padding: 10px 0 44px; }
+  .section-wirkprinzip         { padding: 44px 0 52px; }
+  .section-patente             { padding: 44px 0 52px; }
+  .section-anwendungsbereiche  { padding: 44px 0 52px; }
+  .section-forschung           { padding: 44px 0 52px; }
+  .section-nachweise           { padding: 44px 0 52px; }
+  .section-zusammenfassung     { padding: 44px 0 52px; }
+
+  /* t-ZnO hero headline: 56 px → 26 px */
+  .headline-tzno {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  /* Override inline font-size on Studienfazit / Experteneinschätzung
+     quote blocks (they have style="font-size:38px" inline) */
+  .mission-text {
+    font-size: 20px !important;
+    line-height: 28px !important;
+  }
+
+  /* Reduce the large inline margin-bottom on nachweise containers */
+  .section-nachweise .container-2col {
+    margin-bottom: 36px !important;
+  }
+
+  /* Zusammenfassung: reduce the inline margin-top on the quote block */
+  .section-zusammenfassung .align-center {
+    margin-top: 40px !important;
+  }
+
+  /* Tighten qualitaet-list-container inline margins across t-ZnO sections */
+  .section-wirkprinzip .qualitaet-list-container,
+  .section-patente .qualitaet-list-container,
+  .section-anwendungsbereiche .qualitaet-list-container,
+  .section-forschung .qualitaet-list-container,
+  .section-nachweise .qualitaet-list-container,
+  .section-zusammenfassung .qualitaet-list-container {
+    margin-bottom: 28px !important;
+  }
+
+  /* Tighten inline margin-bottom on kern-body paragraphs */
+  .section-wirkprinzip .kern-body,
+  .section-forschung .kern-body,
+  .section-nachweise .kern-body,
+  .section-tzno-beschreibung .kern-body {
+    margin-bottom: 20px !important;
+  }
+
+  /* Image gallery in Anwendungsbereiche:
+     remove the large positive/negative inline margins */
+  .section-anwendungsbereiche .image-gallery {
+    margin-top: 44px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Logos section: override inline padding */
+  .section-logos {
+    padding: 56px 0 !important;
+  }
+  .section-logos > div {
+    padding: 0 20px !important;
+  }
+}
+
+/* ── Section: Logos ───────────────────────────────────────── */
+.section-logos {
+  background: var(--color-white);
+  padding: 90px 0;
+}
+
+.logos-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  gap: 16px;
+}
+
+.logos-grid__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.logos-grid__item img {
+  height: 110px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .section-logos {
+    padding: 52px 0 !important;
+  }
+  .logos-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    gap: 8px;
+  }
+  .logos-grid__item {
+    width: 100%;
+    padding: 16px 20px;
+  }
+  .logos-grid__item img {
+    height: 70px;
+    max-width: 100%;
+  }
+}
+
+/* ── Mobile: Impressum page (≤ 480px) ──────────────────────── */
+@media (max-width: 480px) {
+
+  /* Section: reduce inline padding and lift the forced full-height */
+  .section-impressum {
+    padding: 48px 0 56px !important;
+    min-height: auto !important;
+  }
+
+  /* Container horizontal padding */
+  .section-impressum .container-2col {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  /* Page headline: 64 px inline → 32 px */
+  .section-impressum h1 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 32px !important;
+  }
+
+  /* Contact & legal content flex columns: shrink font + gap */
+  .section-impressum .col-right > div {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    gap: 22px !important;
+  }
+
+  /* Arrow SVG */
+  .section-impressum .anspruch-arrow {
+    width: 48px;
+    height: 16px;
   }
 }
