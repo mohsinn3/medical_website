@@ -57,7 +57,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 48px;
+  padding: 18px 48px;
   background: var(--color-white);
   position: sticky;
   top: 0;
@@ -66,12 +66,14 @@ body::before {
 }
 
 .navbar__logo {
-  display: block;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  transform: translateY(2px);
 }
 
 .navbar__logo img {
-  height: 48px;
+  height: 80px;
   width: auto;
   display: block;
 }
@@ -1110,11 +1112,16 @@ body::before {
 
   /* Navbar */
   .navbar {
-    padding: 14px 20px;
+    padding: 11px 20px;
   }
 
   .navbar__logo {
     font-size: 28px;
+  }
+
+  .navbar__logo img {
+    height: 54px;
+    transform: translateY(1px);
   }
 
   /* Hero */
