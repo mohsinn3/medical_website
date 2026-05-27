@@ -1047,8 +1047,9 @@ body::before {
 }
 
 .footer__logo img {
-  height: 64px;
+  height: 256px;
   width: auto;
+  max-width: 100%;
   display: block;
 }
 
@@ -1311,8 +1312,9 @@ body::before {
     gap: 40px;
   }
 
-  .footer__logo {
-    font-size: 40px;
+  .footer__logo img {
+    height: 160px;
+    max-width: 100%;
   }
 
   .footer__links {
