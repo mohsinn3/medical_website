@@ -1,0 +1,6 @@
+# Adobe Illustrator source files (too large for GitHub)
+*.ai
+
+# OS files
+.DS_Store
+Thumbs.db
